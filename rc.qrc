@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/icons/Icon_17.ico</file>
+        <file>images/icons/Icon_16.ico</file>
+        <file>images/icons/Icon_15.ico</file>
+        <file>images/icons/Icon_14.ico</file>
+        <file>images/icons/Icon_13.ico</file>
+        <file>images/icons/Icon_12.ico</file>
+        <file>images/icons/Icon_11.ico</file>
+        <file>images/icons/Icon_10.ico</file>
+        <file>images/icons/Icon_9.ico</file>
+        <file>images/icons/Icon_8.ico</file>
+        <file>images/icons/Icon_7.ico</file>
+        <file>images/icons/Icon_6.ico</file>
+        <file>images/icons/Icon_5.ico</file>
+        <file>images/icons/Icon_4.ico</file>
+        <file>images/icons/Icon_3.ico</file>
+        <file>images/icons/Icon_2.ico</file>
+        <file>images/icons/Icon_1.ico</file>
+        <file>images/bitmaps/Bitmap_17.bmp</file>
+        <file>images/bitmaps/Bitmap_16.bmp</file>
+        <file>images/bitmaps/Bitmap_15.bmp</file>
+        <file>images/bitmaps/Bitmap_14.bmp</file>
+        <file>images/bitmaps/Bitmap_13.bmp</file>
+        <file>images/bitmaps/Bitmap_12.bmp</file>
+        <file>images/bitmaps/Bitmap_11.bmp</file>
+        <file>images/bitmaps/Bitmap_10.bmp</file>
+        <file>images/bitmaps/Bitmap_9.bmp</file>
+        <file>images/bitmaps/Bitmap_8.bmp</file>
+        <file>images/bitmaps/Bitmap_7.bmp</file>
+        <file>images/bitmaps/Bitmap_6.bmp</file>
+        <file>images/bitmaps/Bitmap_5.bmp</file>
+        <file>images/bitmaps/Bitmap_4.bmp</file>
+        <file>images/bitmaps/Bitmap_3.bmp</file>
+        <file>images/bitmaps/Bitmap_2.bmp</file>
+        <file>images/bitmaps/Bitmap_1.bmp</file>
+        <file>images/bitmaps/Bitmap_18.bmp</file>
+    </qresource>
+</RCC>
