@@ -13,9 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        maindialog.cpp
+        maindialog.cpp \
+    rdpoptions.cpp \
+    rdesktoplauncher.cpp
 
-HEADERS  += maindialog.h
+HEADERS  += maindialog.h \
+    rdpoptions.h \
+    rdesktoplauncher.h
 
 FORMS    += maindialog.ui
 
