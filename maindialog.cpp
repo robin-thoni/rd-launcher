@@ -6,6 +6,7 @@ MainDialog::MainDialog(QWidget *parent) :
     ui(new Ui::MainDialog)
 {
     ui->setupUi(this);
+    connect(ui->lineComputer->lineEdit(), SIGNAL(returnPressed()), ui->btnConnect, SLOT(animateClick()));
 }
 
 MainDialog::~MainDialog()

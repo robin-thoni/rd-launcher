@@ -84,7 +84,7 @@
       </font>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabGeneral">
       <attribute name="title">
@@ -134,6 +134,9 @@
            <widget class="QCheckBox" name="checkSaveSession">
             <property name="text">
              <string>Me permettre d'enregistrer les informations d'idenfication</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -260,7 +263,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tabDisplay">
       <attribute name="title">
        <string>Affichage</string>
       </attribute>
@@ -286,7 +289,13 @@
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QSlider" name="horizontalSlider">
+           <widget class="QSlider" name="slidResolution">
+            <property name="maximum">
+             <number>10</number>
+            </property>
+            <property name="pageStep">
+             <number>1</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -328,7 +337,7 @@
            </widget>
           </item>
           <item row="2" column="1" colspan="3">
-           <widget class="QCheckBox" name="checkBox_2">
+           <widget class="QCheckBox" name="checkAllDisplays">
             <property name="text">
              <string>Utiliser tous les moniteurs pour la session à distance</string>
             </property>
@@ -360,13 +369,39 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="comboColors">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="currentIndex">
+             <number>3</number>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::AdjustToContents</enum>
+            </property>
+            <item>
+             <property name="text">
+              <string>Haute couleurs (15 bits)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Haute couleurs (16 bits)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Couleurs réeles (24 bits)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Qualité optimale (32 bits)</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item row="0" column="0" rowspan="2">
@@ -392,9 +427,12 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="checkFullscreenBar">
          <property name="text">
           <string>Afficher la barre de connexion en cas de mode plein écran</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -413,7 +451,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3">
+     <widget class="QWidget" name="tabResources">
       <attribute name="title">
        <string>Resources locales</string>
       </attribute>
@@ -460,7 +498,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="btnSound">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -517,13 +555,34 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="comboBox_2">
+           <widget class="QComboBox" name="comboMetaKeys">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="currentIndex">
+             <number>2</number>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::AdjustToContents</enum>
+            </property>
+            <item>
+             <property name="text">
+              <string>Avec</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sans</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>En mode plein écran uniquement</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item row="2" column="1">
@@ -575,7 +634,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QCheckBox" name="checkBox_3">
+           <widget class="QCheckBox" name="checkPrinters">
             <property name="sizePolicy">
              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -588,7 +647,7 @@
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QCheckBox" name="checkBox_4">
+           <widget class="QCheckBox" name="checkClipboard">
             <property name="sizePolicy">
              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -601,7 +660,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="btnPeriphs">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -618,7 +677,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_4">
+     <widget class="QWidget" name="tabPrograms">
       <attribute name="title">
        <string>Programmes</string>
       </attribute>
@@ -643,7 +702,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QCheckBox" name="checkBox_5">
+           <widget class="QCheckBox" name="checkProgram">
             <property name="text">
              <string>Démarrer le programme suivant lors de la connexion:</string>
             </property>
@@ -651,23 +710,37 @@
           </item>
           <item row="1" column="1">
            <widget class="QLabel" name="label_22">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Chemin d'accès au programme et nom du fichier:</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="lineProgramPath">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
           <item row="3" column="1">
            <widget class="QLabel" name="label_23">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Démarrer dans le dossier suivant:</string>
             </property>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QLineEdit" name="lineEdit_2"/>
+           <widget class="QLineEdit" name="lineProgramWorkingDir">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -687,7 +760,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_5">
+     <widget class="QWidget" name="tabExperience">
       <attribute name="title">
        <string>Expérience</string>
       </attribute>
@@ -734,29 +807,76 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="comboBox_3">
+           <widget class="QComboBox" name="comboExperience">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="currentIndex">
+             <number>6</number>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::AdjustToContents</enum>
+            </property>
+            <item>
+             <property name="text">
+              <string>Modem (56 Kbits/s)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Bas débit (256 Kbits/s - 2 Mbits/s)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Satellite (2 Mbits/s - 16 Mbits/s avec forte latence)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Haut débit (2 Mbits/s - 10 Mbits/s)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>WAN (10 Mbits/s ou plus avec forte latence)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LAN (10 Mbits/s ou plus)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Détecter automatiquement la qualité de la connexion</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_6">
+        <widget class="QCheckBox" name="checkCacheBitmap">
          <property name="text">
           <string>Mise en cache permanente des bitmaps</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_7">
+        <widget class="QCheckBox" name="checkAutoReconnect">
          <property name="text">
           <string>Rétablir la connexion si elle est interrompue</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -802,7 +922,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="btnConnect">
        <property name="text">
         <string>Connexion</string>
        </property>
@@ -826,5 +946,102 @@
  <resources>
   <include location="rc.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkProgram</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_22</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkProgram</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineProgramPath</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>244</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkProgram</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_23</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>166</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkProgram</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineProgramWorkingDir</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>213</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineUsername</sender>
+   <signal>returnPressed()</signal>
+   <receiver>btnConnect</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>338</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>464</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linePassword</sender>
+   <signal>returnPressed()</signal>
+   <receiver>btnConnect</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>277</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
