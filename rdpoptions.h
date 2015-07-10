@@ -64,6 +64,15 @@ public:
     Colors colors() const;
     void setColors(const Colors &colors);
 
+    bool useAllMonitors() const;
+    void setUseAllMonitors(bool useAllMonitors);
+
+    bool fullscreenBar() const;
+    void setFullscreenBar(bool fullscreenBar);
+
+    bool autoReconnect() const;
+    void setAutoReconnect(bool autoReconnect);
+
 private:
     QString m_host;
 
@@ -71,13 +80,15 @@ private:
 
     QString m_password;
 
-    QSize m_resolution;
-
     bool m_fullescreen;
 
-    Experience m_experience;
+    QSize m_resolution;
 
-    bool m_bitmapCache;
+    bool m_useAllMonitors;
+
+    Colors m_colors;
+
+    bool m_fullscreenBar;
 
     bool m_metaKeys;
 
@@ -87,7 +98,11 @@ private:
 
     QString m_shellWorkingDir;
 
-    Colors m_colors;
+    Experience m_experience;
+
+    bool m_bitmapCache;
+
+    bool m_autoReconnect;
 };
 
 #endif // RDPOPTIONS_H

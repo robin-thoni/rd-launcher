@@ -122,6 +122,36 @@ void RdpOptions::setColors(const Colors &colors)
 {
     m_colors = colors;
 }
+bool RdpOptions::useAllMonitors() const
+{
+    return m_useAllMonitors;
+}
+
+void RdpOptions::setUseAllMonitors(bool useAllMonitors)
+{
+    m_useAllMonitors = useAllMonitors;
+}
+bool RdpOptions::fullscreenBar() const
+{
+    return m_fullscreenBar;
+}
+
+void RdpOptions::setFullscreenBar(bool fullscreenBar)
+{
+    m_fullscreenBar = fullscreenBar;
+}
+bool RdpOptions::autoReconnect() const
+{
+    return m_autoReconnect;
+}
+
+void RdpOptions::setAutoReconnect(bool autoReconnect)
+{
+    m_autoReconnect = autoReconnect;
+}
+
+
+
 
 
 

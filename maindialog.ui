@@ -94,7 +94,7 @@
       </font>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabGeneral">
       <attribute name="title">
@@ -142,9 +142,6 @@
           </item>
           <item row="4" column="1" colspan="2">
            <widget class="QCheckBox" name="checkSaveSession">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
             <property name="text">
              <string>Me permettre d'enregistrer les informations d'idenfication</string>
             </property>
@@ -204,9 +201,6 @@
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox_2">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
          <property name="title">
           <string>Paramètres de connexion</string>
          </property>
@@ -292,9 +286,6 @@
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="3" column="1" colspan="3">
            <widget class="QCheckBox" name="checkAllDisplays">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -475,9 +466,6 @@
        </item>
        <item>
         <widget class="QCheckBox" name="checkFullscreenBar">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
          <property name="text">
           <string>Afficher la barre de connexion en cas de mode plein écran</string>
          </property>
@@ -928,9 +916,6 @@
        </item>
        <item>
         <widget class="QCheckBox" name="checkAutoReconnect">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
          <property name="text">
           <string>Rétablir la connexion si elle est interrompue</string>
          </property>
