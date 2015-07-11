@@ -40,8 +40,8 @@ public:
     QSize resolution() const;
     void setResolution(const QSize &resolution);
 
-    bool fullescreen() const;
-    void setFullescreen(bool fullescreen);
+    bool fullscreen() const;
+    void setFullscreen(bool fullscreen);
 
     Experience experience() const;
     void setExperience(const Experience &experience);
@@ -73,6 +73,9 @@ public:
     bool autoReconnect() const;
     void setAutoReconnect(bool autoReconnect);
 
+    QString keymap() const;
+    void setKeymap(const QString &keymap);
+
 private:
     QString m_host;
 
@@ -80,7 +83,7 @@ private:
 
     QString m_password;
 
-    bool m_fullescreen;
+    bool m_fullscreen;
 
     QSize m_resolution;
 
@@ -103,6 +106,8 @@ private:
     bool m_bitmapCache;
 
     bool m_autoReconnect;
+
+    QString m_keymap;
 };
 
 #endif // RDPOPTIONS_H

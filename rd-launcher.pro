@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         maindialog.cpp \
     rdpoptions.cpp \
-    rdesktoplauncher.cpp
+    rdesktoplauncher.cpp \
+    rdpoptionshelper.cpp
 
 HEADERS  += maindialog.h \
     rdpoptions.h \
-    rdesktoplauncher.h
+    rdesktoplauncher.h \
+    rdpoptionshelper.h
 
 FORMS    += maindialog.ui
 

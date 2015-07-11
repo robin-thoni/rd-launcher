@@ -44,14 +44,14 @@ void RdpOptions::setResolution(const QSize &resolution)
     m_resolution = resolution;
 }
 
-bool RdpOptions::fullescreen() const
+bool RdpOptions::fullscreen() const
 {
-    return m_fullescreen;
+    return m_fullscreen;
 }
 
-void RdpOptions::setFullescreen(bool fullescreen)
+void RdpOptions::setFullscreen(bool fullscreen)
 {
-    m_fullescreen = fullescreen;
+    m_fullscreen = fullscreen;
 }
 
 RdpOptions::Experience RdpOptions::experience() const
@@ -149,6 +149,16 @@ void RdpOptions::setAutoReconnect(bool autoReconnect)
 {
     m_autoReconnect = autoReconnect;
 }
+QString RdpOptions::keymap() const
+{
+    return m_keymap;
+}
+
+void RdpOptions::setKeymap(const QString &keymap)
+{
+    m_keymap = keymap;
+}
+
 
 
 

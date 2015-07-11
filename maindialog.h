@@ -36,10 +36,14 @@ private slots:
 
     void on_btnOpenSession_clicked();
 
+    void on_lineComputer_currentIndexChanged(int index);
+
 private:
     Ui::MainDialog *ui;
 
     QList<QSize> m_resolutions;
+
+    QList<RdpOptions> m_rdpOptions;
 };
 
 #endif // MAINDIALOG_H

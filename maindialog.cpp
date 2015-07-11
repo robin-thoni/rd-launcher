@@ -4,6 +4,7 @@
 #include "maindialog.h"
 #include "ui_maindialog.h"
 #include "rdesktoplauncher.h"
+#include "rdpoptionshelper.h"
 
 MainDialog::MainDialog(QWidget *parent) :
     QDialog(parent),
@@ -13,6 +14,25 @@ MainDialog::MainDialog(QWidget *parent) :
     connect(ui->lineComputer->lineEdit(), SIGNAL(returnPressed()), ui->btnConnect, SLOT(animateClick()));
     connect(ui->lineComputer->lineEdit(), SIGNAL(textChanged(QString)), this, SLOT(textChanged(QString)));
     computeResolutions();
+    QStringList layouts;
+    for (int l = QLocale::Abkhazian; l <= QLocale::Shambala; ++l)
+    {
+        QString name = QLocale((QLocale::Language)l).name();
+        if (!layouts.contains(name))
+            layouts.append(name);
+    }
+    layouts.sort();
+    ui->comboKeyboard->addItems(layouts);
+    ui->comboKeyboard->setCurrentIndex(ui->comboKeyboard->findText("en_US"));
+
+    m_rdpOptions = RdpOptionsHelper::loadAll();
+    ui->lineComputer->addItem("");
+    for (int i = 1; i < m_rdpOptions.size(); ++i)
+    {
+        RdpOptions opt = m_rdpOptions.at(i);
+        ui->lineComputer->addItem(opt.host());
+    }
+
     ui->lineComputer->setFocus();
 }
 
@@ -27,8 +47,8 @@ RdpOptions MainDialog::getRdpOptions() const
     opt.setHost(ui->lineComputer->currentText());
     opt.setUsername(ui->lineUsername->text());
     opt.setPassword(ui->linePassword->text());
-    opt.setFullescreen(ui->slidResolution->value() == m_resolutions.size());
-    if (!opt.fullescreen())
+    opt.setFullscreen(ui->slidResolution->value() == m_resolutions.size());
+    if (!opt.fullscreen())
         opt.setResolution(m_resolutions.at(m_resolutions.size() - 1));
     opt.setUseAllMonitors(ui->checkAllDisplays->isChecked());
 
@@ -46,7 +66,7 @@ RdpOptions MainDialog::getRdpOptions() const
 
     opt.setFullscreenBar(ui->checkFullscreenBar->isChecked());
     int meta = ui->comboMetaKeys->currentIndex();
-    opt.setMetaKeys(meta == 0 || (opt.fullescreen() && meta == 2));
+    opt.setMetaKeys(meta == 0 || (opt.fullscreen() && meta == 2));
     opt.setUseShell(ui->checkShell->isChecked());
     if (opt.useShell())
     {
@@ -56,6 +76,7 @@ RdpOptions MainDialog::getRdpOptions() const
     opt.setExperience((RdpOptions::Experience)ui->comboExperience->currentIndex());
     opt.setBitmapCache(ui->checkCacheBitmap->isChecked());
     opt.setAutoReconnect(ui->checkAutoReconnect->isChecked());
+    opt.setKeymap(ui->comboKeyboard->currentText());
     return opt;
 }
 
@@ -64,13 +85,13 @@ void MainDialog::setRdpOptions(const RdpOptions &opt)
     ui->lineComputer->lineEdit()->setText(opt.host());
     ui->lineUsername->setText(opt.username());
     ui->linePassword->setText(opt.password());
-    if (opt.fullescreen())
+    if (opt.fullscreen())
     {
         ui->slidResolution->setValue(ui->slidResolution->maximum());
     }
     else
     {
-
+        ui->slidResolution->setValue(ui->slidResolution->maximum() - 1);
     }
     ui->checkAllDisplays->setChecked(opt.useAllMonitors());
 
@@ -94,12 +115,13 @@ void MainDialog::setRdpOptions(const RdpOptions &opt)
     ui->comboExperience->setCurrentIndex((int)opt.experience());
     ui->checkCacheBitmap->setChecked(opt.bitmapCache());
     ui->checkAutoReconnect->setChecked(opt.autoReconnect());
+    ui->comboKeyboard->setCurrentIndex(ui->comboKeyboard->findText(opt.keymap()));
 }
 
 void MainDialog::on_btnConnect_clicked()
 {
     RdpOptions opt = getRdpOptions();
-
+    RdpOptionsHelper::save(opt);
     RDesktopLauncher launcher;
     launcher.start(opt);
 }
@@ -132,15 +154,20 @@ void MainDialog::on_slidResolution_valueChanged(int value)
 
 void MainDialog::on_btnSaveSession_clicked()
 {
-
+    RdpOptionsHelper::save(getRdpOptions());
 }
 
 void MainDialog::on_btnSaveAsSession_clicked()
 {
-
+    on_btnSaveSession_clicked();
 }
 
 void MainDialog::on_btnOpenSession_clicked()
 {
 
+}
+
+void MainDialog::on_lineComputer_currentIndexChanged(int index)
+{
+    setRdpOptions(m_rdpOptions.at(index));
 }

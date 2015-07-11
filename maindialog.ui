@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>467</width>
-    <height>480</height>
+    <height>557</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -107,49 +107,6 @@
           <string>Paramètres d'ouverture de session</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="1" column="2">
-           <widget class="QComboBox" name="lineComputer">
-            <property name="editable">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_3">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Ordinateur:</string>
-            </property>
-            <property name="buddy">
-             <cstring>lineComputer</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" colspan="2">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Entrez le nom de l'ordinateur distant:</string>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1" colspan="2">
-           <widget class="QCheckBox" name="checkSaveSession">
-            <property name="text">
-             <string>Me permettre d'enregistrer les informations d'idenfication</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0" rowspan="2">
            <widget class="QLabel" name="label">
             <property name="sizePolicy">
@@ -169,8 +126,12 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="2">
-           <widget class="QLineEdit" name="lineUsername"/>
+          <item row="1" column="2">
+           <widget class="QComboBox" name="lineComputer">
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
           <item row="2" column="1">
            <widget class="QLabel" name="label_4">
@@ -186,6 +147,35 @@
            <widget class="QLabel" name="label_5">
             <property name="text">
              <string>Mot de passe:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLineEdit" name="lineUsername"/>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Entrez le nom de l'ordinateur distant:</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Ordinateur:</string>
+            </property>
+            <property name="buddy">
+             <cstring>lineComputer</cstring>
             </property>
            </widget>
           </item>
@@ -233,6 +223,9 @@
           </item>
           <item row="1" column="2">
            <widget class="QPushButton" name="btnSaveAsSession">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Enregistrer sous...</string>
             </property>
@@ -240,6 +233,9 @@
           </item>
           <item row="1" column="3">
            <widget class="QPushButton" name="btnOpenSession">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Ouvrir...</string>
             </property>
@@ -252,6 +248,63 @@
             </property>
             <property name="wordWrap">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>Clavier</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_27">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Choisissez votre disposition de clavier:</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboKeyboard">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::AdjustToContents</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" rowspan="2">
+           <widget class="QLabel" name="label_26">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="rc.qrc">:/images/icons/Icon_7.ico</pixmap>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
             </property>
            </widget>
           </item>
@@ -985,7 +1038,6 @@
   <tabstop>lineComputer</tabstop>
   <tabstop>lineUsername</tabstop>
   <tabstop>linePassword</tabstop>
-  <tabstop>checkSaveSession</tabstop>
   <tabstop>btnSaveSession</tabstop>
   <tabstop>btnSaveAsSession</tabstop>
   <tabstop>btnOpenSession</tabstop>

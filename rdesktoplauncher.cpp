@@ -16,7 +16,7 @@ void RDesktopLauncher::start(RdpOptions options)
     args.append(options.password());
     args.append("-a");
     args.append(QString("%1").arg((int)options.colors()));
-    if (!options.fullescreen())
+    if (!options.fullscreen())
     {
         args.append("-g");
         QSize reso = options.resolution();
@@ -41,6 +41,12 @@ void RDesktopLauncher::start(RdpOptions options)
         args.append("-c");
         args.append(options.shellWorkingDir());
     }
+
+    args.append("-k");
+    args.append(options.keymap());
+
+    args.append("-r");
+    args.append("clipboard:PRIMARYCLIPBOARD");
 
     args.append(options.host());
 
