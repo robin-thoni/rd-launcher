@@ -21,6 +21,8 @@ public:
 public slots:
     void setRdpOptions(const RdpOptions& opt);
 
+    void loadAll();
+
 private slots:
     void on_btnConnect_clicked();
 
@@ -37,6 +39,8 @@ private slots:
     void on_btnOpenSession_clicked();
 
     void on_lineComputer_currentIndexChanged(int index);
+
+    void on_btnRemoveSession_clicked();
 
 private:
     Ui::MainDialog *ui;

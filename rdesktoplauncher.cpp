@@ -48,6 +48,12 @@ void RDesktopLauncher::start(RdpOptions options)
     args.append("-r");
     args.append("clipboard:PRIMARYCLIPBOARD");
 
+    args.append("-r");
+    args.append("disk:rootfs=/");
+
+    args.append("-r");
+    args.append("sound:local:alsa");
+
     args.append(options.host());
 
     QProcess::startDetached("rdesktop", args);

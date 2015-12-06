@@ -10,9 +10,13 @@ public:
 
     static RdpOptions load(QString group);
 
+    static void remove(const RdpOptions& opt);
+
     static QList<RdpOptions> loadAll();
 
     static QString getDefaultName();
+
+    static QString getGroupName(const RdpOptions& opt);
 };
 
 #endif // RDPOPTIONSHELPER_H

@@ -17,23 +17,15 @@ MainDialog::MainDialog(QWidget *parent) :
     QStringList layouts;
     for (int l = QLocale::Abkhazian; l <= QLocale::Shambala; ++l)
     {
-        QString name = QLocale((QLocale::Language)l).name();
+        QString name = QLocale((QLocale::Language)l).name().replace("_", "-").toLower();
         if (!layouts.contains(name))
             layouts.append(name);
     }
     layouts.sort();
     ui->comboKeyboard->addItems(layouts);
-    ui->comboKeyboard->setCurrentIndex(ui->comboKeyboard->findText("en_US"));
+    ui->comboKeyboard->lineEdit()->setText("en-us");
 
-    m_rdpOptions = RdpOptionsHelper::loadAll();
-    ui->lineComputer->addItem("");
-    for (int i = 1; i < m_rdpOptions.size(); ++i)
-    {
-        RdpOptions opt = m_rdpOptions.at(i);
-        ui->lineComputer->addItem(opt.host());
-    }
-
-    ui->lineComputer->setFocus();
+    loadAll();
 }
 
 MainDialog::~MainDialog()
@@ -115,7 +107,21 @@ void MainDialog::setRdpOptions(const RdpOptions &opt)
     ui->comboExperience->setCurrentIndex((int)opt.experience());
     ui->checkCacheBitmap->setChecked(opt.bitmapCache());
     ui->checkAutoReconnect->setChecked(opt.autoReconnect());
-    ui->comboKeyboard->setCurrentIndex(ui->comboKeyboard->findText(opt.keymap()));
+    ui->comboKeyboard->lineEdit()->setText(opt.keymap());
+}
+
+void MainDialog::loadAll()
+{
+    m_rdpOptions = RdpOptionsHelper::loadAll();
+    ui->lineComputer->clear();
+    ui->lineComputer->addItem("");
+    for (int i = 1; i < m_rdpOptions.size(); ++i)
+    {
+        RdpOptions opt = m_rdpOptions.at(i);
+        ui->lineComputer->addItem(opt.host());
+    }
+
+    ui->lineComputer->setFocus();
 }
 
 void MainDialog::on_btnConnect_clicked()
@@ -155,6 +161,7 @@ void MainDialog::on_slidResolution_valueChanged(int value)
 void MainDialog::on_btnSaveSession_clicked()
 {
     RdpOptionsHelper::save(getRdpOptions());
+    loadAll();
 }
 
 void MainDialog::on_btnSaveAsSession_clicked()
@@ -169,5 +176,14 @@ void MainDialog::on_btnOpenSession_clicked()
 
 void MainDialog::on_lineComputer_currentIndexChanged(int index)
 {
-    setRdpOptions(m_rdpOptions.at(index));
+    if (index >= 0 && index < m_rdpOptions.size())
+    {
+        setRdpOptions(m_rdpOptions.at(index));
+    }
+}
+
+void MainDialog::on_btnRemoveSession_clicked()
+{
+    RdpOptionsHelper::remove(getRdpOptions());
+    loadAll();
 }

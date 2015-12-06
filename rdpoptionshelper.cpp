@@ -5,13 +5,7 @@
 
 void RdpOptionsHelper::save(const RdpOptions &opt)
 {
-    QString group;
-    if (opt.host().isEmpty())
-        group = RdpOptionsHelper::getDefaultName();
-    else if (opt.username().isEmpty())
-        group = opt.host();
-    else
-        group = opt.username() + "@" + opt.host();
+    QString group = getGroupName(opt);
     QSettings set(QSettings::UserScope, "RdpOptions");
     set.beginGroup(group);
     set.setValue("host", opt.host());
@@ -60,6 +54,13 @@ RdpOptions RdpOptionsHelper::load(QString group)
     return opt;
 }
 
+void RdpOptionsHelper::remove(const RdpOptions &opt)
+{
+    QString group = getGroupName(opt);
+    QSettings set(QSettings::UserScope, "RdpOptions");
+    set.remove(group);
+}
+
 QList<RdpOptions> RdpOptionsHelper::loadAll()
 {
     QSettings set(QSettings::UserScope, "RdpOptions");
@@ -78,4 +79,14 @@ QList<RdpOptions> RdpOptionsHelper::loadAll()
 QString RdpOptionsHelper::getDefaultName()
 {
     return "__Default__";
+}
+
+QString RdpOptionsHelper::getGroupName(const RdpOptions &opt)
+{
+    if (opt.host().isEmpty())
+        return RdpOptionsHelper::getDefaultName();
+    else if (opt.username().isEmpty())
+        return opt.host();
+    else
+        return opt.username() + "@" + opt.host();
 }
